@@ -1,0 +1,47 @@
+*{
+    margin:0;
+    padding: 0;
+}
+
+div#HomeWrapper
+{
+    justify-content:center;
+    height: 100vh;
+    background-color: #8BEB66;
+    background-image: url("https://1.bp.blogspot.com/-Y2TBmGkP1Qk/VgBv9G8EiuI/AAAAAAAAA-A/EuaExDn7iXUK3tQrvTWbLsXgtHalgbf8ACPcBGAYYCw/s1600/302.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+
+}
+
+div#HomeWrapper ul
+{
+    grid-template-rows: 2/3;
+    height: 100%;
+    list-style: none;
+    position: relative;
+    top:80%;
+}
+
+div#HomeWrapper ul li
+{
+    margin: 1em;
+}
+
+div#HomeWrapper a {
+    justify-content: center;
+    align-content: center;
+    display: flex;
+    padding: 30px 60px;
+    background: #C0EEAE;
+    border: 1px solid #6DB84F;
+    color: #566B4E;
+    border-radius: 60px;
+    font-family: sans-serif;
+    font-weight: 500;
+    font-size: 20px; 
+    text-decoration: none;
+}
+

@@ -1,0 +1,71 @@
+@model TiendaCampesinos.ViewModels.ListProductViewModel
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Campesinos | Lista de Productos Campesino</title>
+    <link rel="stylesheet" href="~/css/ListProductos.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+</head>
+<body>
+    <div id="HomeWrapper">
+        <header>
+            <ul>
+                <li>
+                    <a asp-controller="CerrarSesion" asp-action="CerrarSesion">
+                        Cerrar Sesión
+                    </a>
+                </li> 
+                <li>
+                    <a asp-controller="ActualizarUsuarioCampesino" asp-action="ActualizarInfoCampesino">
+                        Modificar Datos
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="MostrarVentas" asp-action="ListaVentas">
+                        Mostrar Ventas
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="CrearProductos" asp-action="CrearProducto">
+                        Crear Producto
+                    </a>
+                </li>                
+            </ul>
+        </header>
+    </div>
+    <div id="lista">
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre del producto</th>
+                <th>Imagen del producto</th>
+                <th>Peso del producto (gr)</th>
+                <th>Precio por Unidad</th>
+                <th>Cantidad</th>
+                <th>Editar Poducto</th>
+            </tr>
+        </thead>
+        <tbody>
+            <form asp-action="ListaProductos" method="POST">
+            <ul>
+                @foreach (var item in Model.Productos)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.NombreProducto)</td>
+                        <td><img src="@Html.DisplayFor(modelItem => item.Imagen)" alt="Imagen Producto" width="100" height="100" /></td>
+                        <td>@Html.DisplayFor(modelItem => item.PesoNeto)</td>
+                        <td>$@Html.DisplayFor(modelItem => item.Precio)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Cantidad)</td>
+                        <td><a asp-controller="ActualizarProducto" asp-action="@item.Id"><i class="far fa-edit"></i></a></td>
+                    </tr>
+                }
+            </ul>
+            </form>
+        </tbody>
+    </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+@model TiendaCampesinos.ViewModels.ListCarritoViewModel
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Campesinos | Lista de Productos</title>
+    <link rel="stylesheet" href="~/css/ListCarrito.css">
+</head>
+<body>
+    <div id="HomeWrapper">
+        <header>
+            <ul>
+                <li>
+                    <a asp-controller="CerrarSesion" asp-action="CerrarSesion">
+                        Cerrar Sesión
+                    </a>
+                </li> 
+                <li>
+                    <a asp-controller="ActualizarUsuario" asp-action="ActualizarInfo">
+                        Modificar Datos
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="ListaCompras" asp-action="ListaCompras">
+                        Historial Compras
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="MostrarProductos" asp-action="ListaProductos">
+                        Ver Productos
+                    </a>
+                </li>
+            </ul>
+        </header>
+    </div>
+    <div id="lista">
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre del producto</th>
+                <th>Imagen del producto</th>
+                <th>Peso del producto (gr)</th>
+                <th>Precio por Unidad</th>
+                <th>Cantidad</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ul>
+                @foreach (var item in Model.CarritoProducto)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Item2.NombreProducto)</td>
+                        <td><img src="@Html.DisplayFor(modelItem => item.Item2.Imagen)" alt="Imagen Producto" width="100" height="100" /></td>
+                        <td>@Html.DisplayFor(modelItem => item.Item2.PesoNeto)</td>
+                        <td>$@Html.DisplayFor(modelItem => item.Item2.Precio)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Item1.Cantidad)</td>
+                    </tr>
+                }
+            </ul>
+        </tbody>
+    </table>
+    </div>
+    @if(Model.CarritoProducto.Count > 0){
+    <div id="Vaciar">
+        <a asp-controller="VaciarCarrito" asp-action="VaciarCarrito">Vaciar Carrito</a>
+        <br>
+        <div id="movimiento">
+            <label asp-for="Compra.MetodoPago"><b>Método de Pago</b></label>
+            <br>
+            <form asp-action="ComprarCarrito" method="POST">
+            <select name="Compra.MetodoPago" id="Tipo" asp-for="Compra.MetodoPago">
+                <option value="PayPal">PayPal</option>
+                <option value="Cuenta Ahorros">Cuenta Ahorros</option>
+                <option value="Tarjeta Crédito">Tarjeta Crédito</option>
+            </select>
+            <br>
+            <input id="boton" type="submit" value="Comprar">
+            </form>          
+        </div>
+    </div>
+    }
+</body>
+</html>

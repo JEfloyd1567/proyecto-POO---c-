@@ -1,0 +1,67 @@
+*{
+    margin:0;
+    padding: 0;
+}
+
+body{
+    background-color: #8BEB66;
+    background-image: url("https://1.bp.blogspot.com/-Y2TBmGkP1Qk/VgBv9G8EiuI/AAAAAAAAA-A/EuaExDn7iXUK3tQrvTWbLsXgtHalgbf8ACPcBGAYYCw/s1600/302.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+div#login
+{   
+    height: 290px;
+    width: 20%;
+	margin: 14% auto;
+	background-color: #F3EDED;
+    border: 1px solid #ECE8E8;
+	border-radius:8px;
+	padding: 100px 9px 0px 9px;
+    justify-content:center;
+    text-align: center; 
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+div#login label
+{
+    justify-content:center;
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: 80;
+    font-size: 20px; 
+    text-decoration: none;
+}
+
+div#login input
+{
+    justify-content:center;
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: 50;
+    font-size: 20px; 
+    text-decoration: none;
+    border: 1px dotted #8BEB66;
+    border-radius: 0;
+    -webkit-appearance: none;
+}
+
+input#boton
+{
+    margin-left: 30%;
+    justify-content: center;
+    align-content: center;
+    display: flex;
+    padding: 10px 15px;
+    background: #C0EEAE;
+    border: 1px solid #6DB84F;
+    color: #566B4E;
+    border-radius: 60px;
+    font-family: sans-serif;
+    font-weight: 500;
+    font-size: 20px; 
+    text-decoration: none;
+
+}

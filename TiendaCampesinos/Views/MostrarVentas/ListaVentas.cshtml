@@ -1,0 +1,66 @@
+@model TiendaCampesinos.ViewModels.ListVentasViewModel
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Campesinos | Historial de Compras</title>
+    <link rel="stylesheet" href="~/css/ListProductos.css">
+</head>
+<body>
+    <div id="HomeWrapper">
+        <header>
+            <ul>
+                <li>
+                    <a asp-controller="CerrarSesion" asp-action="CerrarSesion">
+                        Cerrar Sesión
+                    </a>
+                </li> 
+                <li>
+                    <a asp-controller="ActualizarUsuario" asp-action="ActualizarInfo">
+                        Modificar Datos
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="MostrarProductos" asp-action="ListaProductos">
+                        Ver Productos
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="CrearProductos" asp-action="CrearProducto">
+                        Crear Producto
+                    </a>
+                </li>
+            </ul>
+        </header>
+    </div>
+    <div id="lista">
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre del producto</th>
+                <th>Imagen del producto</th>
+                <th>Cantidad del producto</th>
+                <th>Precio por Unidad</th>
+                <th>Fecha de Venta</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ul>
+                @foreach (var item in Model.VentaProducto)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Item2.NombreProducto)</td>
+                        <td><img src="@Html.DisplayFor(modelItem => item.Item2.Imagen)" alt="Imagen Producto" width="100" height="100" /></td>
+                        <td>@Html.DisplayFor(modelItem => item.Item1.Cantidad)</td>
+                        <td>$@Html.DisplayFor(modelItem => item.Item1.Precio)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Item1.Fecha)</td>
+                    </tr>
+                }
+            </ul>
+        </tbody>
+    </table>
+    </div>
+</body>
+</html>
